@@ -14,8 +14,14 @@ return new class extends Migration
         Schema::create('biens', function (Blueprint $table) {
             
             $table->id();
-            $table->foreignIdFor('id_users');
-
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('category_id')->constrained()->cascadeOnDelete();
+            $table->string('name', 60);
+            $table->text('description')->nullable();
+            $table->float('price')->nullable();
+            $table->string('city', 60)->nullable();
+            $table->string('image', 60)->nullable();
+            
             $table->timestamps();
         });
     }
