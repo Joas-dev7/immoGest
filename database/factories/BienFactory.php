@@ -17,7 +17,14 @@ class BienFactory extends Factory
     public function definition(): array
     {
         return [
-            
+            'user_id' => fake()->randomDigitNotNull(),
+            'category_id' => fake()->randomDigitNotNull(),
+            'name' => fake()->word(),
+            'description' => fake()->sentence(),            
+            'price' => fake()->randomFloat(),            
+            'city' => fake()->streetAddress(),            
+            'image' => fake()->imageUrl(640, 480, 'house', true),            
+
         ];
     }
 }
